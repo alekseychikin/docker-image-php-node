@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile -t makingoff/php-node:${{ github.ref }}
+    - uses: tinact/docker.image@1.0.2
+      with:
+        image_name: makingoff/php-node
+        image_tag: ${{ github.ref }}
+        registry_username: makingoff
+        registry_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
