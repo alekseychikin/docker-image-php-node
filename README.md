@@ -1,6 +1,6 @@
 # Docker image with PHP and Nodejs
 
-I use this image for building project via GitHub Actions and BitBucket Piplines
+I use this image for building project via GitHub Actions and BitBucket Pipelines
 
 Example config for `.github/workflows/deploy.yaml`
 
